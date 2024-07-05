@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <head>
+        <title>Blog App</title>
+        <%- include('./partials/head') %>
+    </head>
+    <%- include('./partials/navbar') %>
+
+    <div class="container mt-3 row row-cols-4 ">
+        <% blogs.forEach(blog => { %>
+            <div class="col">
+                <div class="card justify-center" style="width: 18rem;">
+                    <img src="<%- blog.coverImageUrl %>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title"><%- blog.title %></h5>
+                      <p class="card-text"><%- blog.content.substring(0, 80) %>...</p>
+                      <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+                    </div>
+                  </div>
+            </div>
+            
+        <% }) %>
+    </div>
+
+    <%- include('./partials/scripts') %>
+</body>
+</html>
